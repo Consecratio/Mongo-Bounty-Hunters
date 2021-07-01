@@ -1,1 +1,42 @@
-Please replace this text with ~50 lines of terminal history.
+help
+show dbs
+use myDB
+db
+db.users.insert({ name: "Fred", age: 21 })
+db.users.find()
+db
+show collections
+db.users.find()
+db.users.insert( [ { name: "Emma", age: 20 }, {name: "Ray", age: 45} ])
+db.users.find()
+db.users.find({name: "Emma"})
+db.users.find({age: {$gt: 19}})
+db.users.find({age: {$gt: 21}})
+db.users.find({age: {$lte: 45}})
+db.users.find( {age: {$lte: 44}} )
+db.users.find( {age: {$lte: 44}} ).sort({name: 1})
+db.users.update( {name: "Ray"}, {$set: {age: 46}} )
+db.users.find()
+db.users.update({age: {$lt: 45}}, {$set: {age:46}}})
+db.users.update({age: {$lt: 45}}, {$set: {age:46}})
+db.users.find()
+db.users.update({age: {$lt: 45}}, {$set: {age:46}})
+db.users.find()
+db.users.remove({name: "Fred"})
+db.users.find()
+db.users.drop()
+show collections
+use hunters
+db.createCollection('bounties')
+show collections
+db.bounties.insert(   {     name: 'Han Solo',     wantedFor : 'Owing money',     client : 'Jabba the Hut',     reward : 1000000,     ship: 'Millennium Falcon',     hunters :['Bobba Fett', 'Dengar', 'IG-88', 'Zuckuss', 'Greedo', 'Bossk', '4-LOM'],     captured: false   }   )
+db.bounties.find()
+db.bounties.insert([   {     name: 'Rocket',     wantedFor : 'Stealing Batteries',     client : 'Ayesha High Priestess of the Sovereign',     reward : 1000000000,     ship: 'The Milano',     hunters :['Nebula', 'Ravagers'],     captured: false   },   {     name: 'Sara Lance',     wantedFor : 'Screwing up the timeline, causing anachronisms',     client : 'Time Bureau',     reward : 50000,     ship: 'Waverider',     hunters :['Chronos'],     captured: false   },   {     name: 'Malcolm Reynolds',     wantedFor : 'Aiming to misbehave',     client : 'The Alliance',     reward : 40000,     ship: 'Serenity',     hunters :['Jubal Early'],     captured: false   },   {     name: 'Starbuck',     wantedFor : "Disobeying Captain's orders",     client : 'Captain Adama',     ship: 'Demetrius',     reward : 1000,     hunters :['Apollo'],     captured: true   } ])
+db.bounties.find()
+db.bounties.find({client: 'Time Bureau'})
+db.bounties.find({captured: true})
+db.bounties.insert( { name: 'Luke Skywalker', wantedFor: 'Using the force', client: 'Darth Vader', reward: 1000000, ship: 'Millennium Falcon', hunters: ['Apollo'], captured: false } )
+db.bounties.find({name: 'Luke Skywalker'})
+db.bounties.find({}, {name:0})
+db.bounties.aggregate({$project: {name:1}})
+db.bounties.aggregate({$project: {_id: 0, name:1}})
